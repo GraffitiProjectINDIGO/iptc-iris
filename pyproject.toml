@@ -40,9 +40,10 @@ Issues = "https://github.com/GraffitiProjectINDIGO/iptc-iris/issues"
 [project.optional-dependencies]
 test = ["pytest>=8"]
 
+# Ruff and pyright are pinned so local runs and CI give the same results; update them deliberately.
 develop = [
-    "pyright",
-    "ruff",
+    "pyright==1.1.414",
+    "ruff==0.17.5",
     "pytest>=8",
     "coverage>=7.5.4"]
 
@@ -65,7 +66,8 @@ command_line = "-m pytest"
 
 [tool.pytest.ini_options]
 testpaths = ["tests", "examples"]
-pythonpath = ["src"]
+# "." lets tests import helpers from examples/, also when pytest is started as `pytest` instead of `python -m pytest`.
+pythonpath = ["src", "."]
 
 [tool.ruff.lint]
 select = [

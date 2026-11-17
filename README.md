@@ -61,9 +61,21 @@ The validator targets Python 3.11, 3.12, 3.13, and 3.14 and has no runtime depen
 ## Install for Development
 
 ```powershell
-python -m pip install -e .[test]
-python -m pytest
+python -m pip install -e .[develop]
 ```
+
+The same checks as in the GitHub workflow can then be run locally:
+
+```powershell
+python -m pytest
+python -m ruff check
+python -m ruff format --check
+python -m pyright
+```
+
+Ruff and pyright are pinned in the `develop` extra, so local runs and CI report
+the same results. The workflow additionally runs the tests on Linux, macOS, and
+Windows with Python 3.11 to 3.14.
 
 Tests that call ExifTool or Exiv2 are skipped unless the tools are on `PATH`
 (see [External Metadata Tools](#external-metadata-tools)). They write into a
@@ -1100,12 +1112,12 @@ The standard is chosen when data is loaded and stays with it:
 ```python
 from iptc_iris import load_metadata_file, write_image_regions
 
-metadata = load_metadata_file("regions.json")                    # standard="2025.1"
-metadata.valid                    # False if the file contains a multipolygon
+metadata = load_metadata_file("regions.json")  # standard="2025.1"
+metadata.valid  # False if the file contains a multipolygon
 
 metadata = load_metadata_file("regions.json", standard="2026.1-draft")
-metadata.valid                    # True
-metadata.image_regions.standard   # "2026.1-draft"
+metadata.valid  # True
+metadata.image_regions.standard  # "2026.1-draft"
 ```
 
 The same `standard=` parameter exists on `normalize_metadata()`,
@@ -1121,7 +1133,7 @@ result = metadata.validation_result(standard="2025.1")
 Writing uses the data's standard unless it is overridden:
 
 ```python
-write_image_regions("photo.jpg", metadata)                               # metadata.image_regions.standard
+write_image_regions("photo.jpg", metadata)  # metadata.image_regions.standard
 write_image_regions("photo.jpg", regions_list, standard="2026.1-draft")  # plain dicts/lists
 ```
 

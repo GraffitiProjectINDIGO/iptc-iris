@@ -13,19 +13,16 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
 
-    name: test ${{ matrix.os }}
+    name: test ${{ matrix.os }} / Python ${{ matrix.python-version }}
     steps:
     - uses: actions/checkout@v6
 
-    - name: Set up Python versions
+    - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v6
       with:
-        python-version: |
-          3.11
-          3.12
-          3.13
-          3.14
+        python-version: ${{ matrix.python-version }}
         cache: pip
 
     - name: Install metadata tools on Ubuntu
@@ -58,10 +55,37 @@ jobs:
         exiftool -ver
         exiv2 -V
 
-    - name: Install tox
+    - name: Install package
       run: |
-        python -m pip install --upgrade pip tox
+        python -m pip install --upgrade pip
+        python -m pip install -e ".[test]"
 
-    - name: Run tox
+    - name: Run tests
       run: |
-        tox
+        python -m pytest
+
+  lint:
+    runs-on: ubuntu-latest
+    name: lint and type check
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Set up Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: "3.11"
+        cache: pip
+
+    - name: Install package with development tools
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -e ".[develop]"
+
+    - name: Ruff
+      run: |
+        python -m ruff check
+        python -m ruff format --check
+
+    - name: Pyright
+      run: |
+        python -m pyright
