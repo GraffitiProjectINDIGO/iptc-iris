@@ -1,0 +1,175 @@
+{
+  "path": "example_data\\regions-fixable.json",
+  "imageRegion": [
+    {
+      "OrganisationInImageName": [
+        "TT Nyhetsbyrån AB (Swedish Newsageny)"
+      ],
+      "PersonInImage": [
+        "Johan Lindgren"
+      ],
+      "rId": "persltr1",
+      "name": {
+        "x-default": "Speaker"
+      },
+      "rCtype": [
+        {
+          "name": {
+            "x-default": "human"
+          },
+          "identifiers": [
+            "http://cv.iptc.org/newscodes/imageregiontype/human"
+          ]
+        }
+      ],
+      "rRole": [
+        {
+          "name": {
+            "x-default": "subject area"
+          },
+          "identifiers": [
+            "http://cv.iptc.org/newscodes/imageregionrole/subjectArea"
+          ]
+        }
+      ],
+      "regionBoundary": {
+        "no_valid_tag": 4,
+        "rbShape": "polygon",
+        "rbUnit": "relative",
+        "rbVertices": [
+          {
+            "rbX": 0.146,
+            "rbY": 0.29
+          },
+          {
+            "rbX": 0.38,
+            "rbY": 0.71
+          },
+          {
+            "rbX": 0.035,
+            "rbY": 0.58
+          }
+        ]
+      }
+    },
+    {
+      "OrganisationInImageName": [
+        "IPTC - International Press Telecommunications Council"
+      ],
+      "PersonInImage": [
+        "Brendan Quinn"
+      ],
+      "rId": "persltr2",
+      "name": {
+        "x-default": "Listener 1"
+      },
+      "rCtype": [
+        {
+          "name": {
+            "x-default": "human"
+          },
+          "identifiers": [
+            "http://cv.iptc.org/newscodes/imageregiontype/human"
+          ]
+        }
+      ],
+      "rRole": [
+        {
+          "name": {
+            "x-default": "subject area"
+          },
+          "identifiers": [
+            "http://cv.iptc.org/newscodes/imageregionrole/subjectArea"
+          ]
+        }
+      ],
+      "regionBoundary": {
+        "rbShape": "rectangle",
+        "rbUnit": "relative",
+        "rbX": 0.33,
+        "rbY": 0.34,
+        "rbW": 0.105,
+        "rbH": 0.2
+      }
+    },
+    {
+      "OrganisationInImageName": [
+        "ATC (Greece)"
+      ],
+      "PersonInImage": [
+        "Kostas Konstantoulis"
+      ],
+      "rId": "persltr3",
+      "name": {
+        "x-default": "Listener 3"
+      },
+      "rCtype": [
+        {
+          "name": {
+            "x-default": "human"
+          },
+          "identifiers": [
+            "http://cv.iptc.org/newscodes/imageregiontype/human"
+          ]
+        }
+      ],
+      "rRole": [
+        {
+          "name": {
+            "x-default": "subject area"
+          },
+          "identifiers": [
+            "http://cv.iptc.org/newscodes/imageregionrole/subjectArea"
+          ]
+        }
+      ],
+      "regionBoundary": {
+        "rbShape": "circle",
+        "rbUnit": "relative",
+        "rbX": 0.61,
+        "rbY": 0.49,
+        "rbRx": 0.08
+      }
+    },
+    {
+      "OrganisationInImageName": [
+        "New York Times (USA)"
+      ],
+      "PersonInImage": [
+        "Jennifer Parrucci"
+      ],
+      "rId": "persltr4",
+      "name": {
+        "x-default": "Listener 4"
+      },
+      "rCtype": [
+        {
+          "name": {
+            "x-default": "human"
+          },
+          "identifiers": [
+            "http://cv.iptc.org/newscodes/imageregiontype/human"
+          ]
+        }
+      ],
+      "rRole": [
+        {
+          "name": {
+            "x-default": "subject area"
+          },
+          "identifiers": [
+            "http://cv.iptc.org/newscodes/imageregionrole/subjectArea"
+          ]
+        }
+      ],
+      "regionBoundary": {
+        "rbShape": "rectangle",
+        "rbUnit": "relative",
+        "rbX": 0.81,
+        "rbY": 0.34,
+        "rbW": 0.095,
+        "rbH": 0.18
+      }
+    }
+  ]
+}

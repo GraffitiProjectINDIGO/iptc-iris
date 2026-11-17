@@ -1,0 +1,80 @@
+name: Check IPTC Standard Version
+
+on:
+  schedule:
+    - cron: "0 8 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Check IPTC Photo Metadata Standard version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          pinned="$(
+            grep -E '^IPTC_PHOTO_METADATA_STANDARD_VERSION = ' src/iptc_iris/spec.py \
+              | sed -E 's/.*"([^"]+)".*/\1/'
+          )"
+
+          page="$(curl -fsSL https://iptc.org/standards/photo-metadata/iptc-standard/)"
+
+          latest="$(
+            printf '%s\n' "$page" \
+              | grep -Eo 'IPTC-PhotoMetadata-[0-9]{4}\.[0-9]+' \
+              | sed -E 's/IPTC-PhotoMetadata-//' \
+              | sort -V \
+              | tail -n 1
+          )"
+
+          echo "Pinned IPTC version: $pinned"
+          echo "Latest IPTC version:  $latest"
+
+          if [ -z "$latest" ]; then
+            echo "::error::Could not detect latest IPTC Photo Metadata Standard version"
+            exit 1
+          fi
+
+          if [ "$latest" = "$pinned" ]; then
+            echo "Pinned IPTC version is current."
+            exit 0
+          fi
+
+          title="Review IPTC Photo Metadata Standard $latest"
+
+          existing="$(
+            gh issue list \
+              --state open \
+              --search "$title in:title" \
+              --json number \
+              --jq '.[0].number // empty'
+          )"
+
+          if [ -n "$existing" ]; then
+            echo "Issue already exists: #$existing"
+            exit 0
+          fi
+
+          gh issue create \
+            --title "$title" \
+            --body "A newer IPTC Photo Metadata Standard appears to be available.
+
+          Pinned version: $pinned
+          Detected version: $latest
+
+          Please review whether Image Region sections have changed:
+          - https://iptc.org/standards/photo-metadata/iptc-standard/
+          - https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata-$latest.html
+
+          If Image Region rules changed, update src/iptc_iris/spec.py, tests, and README references."

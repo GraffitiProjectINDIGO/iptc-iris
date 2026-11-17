@@ -1,0 +1,94 @@
+# Project configuration for the iptc-iris package, including build metadata,
+# supported Python versions, optional test dependency, and CLI entry point.
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "iptc-iris"
+version = "0.1.0"
+description = "IPTC-IRIS (IPTC - Image Region Integrity System): validation, normalisation, and reasoning for IPTC Image Region metadata."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Martin Wieser" },
+  { name = "Geert Verhoeven" },
+]
+keywords = ["iptc", "xmp", "metadata", "image-region", "validation"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Multimedia :: Graphics",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/GraffitiProjectINDIGO/iptc-iris"
+Source = "https://github.com/GraffitiProjectINDIGO/iptc-iris"
+Issues = "https://github.com/GraffitiProjectINDIGO/iptc-iris/issues"
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+develop = [
+    "pyright",
+    "ruff",
+    "pytest>=8",
+    "coverage>=7.5.4"]
+
+[project.scripts]
+iptc-iris = "iptc_iris.cli:main"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src",
+    "tests",
+    "examples",
+    "example_data",
+    "README.md",
+    "LICENSE",
+]
+
+[tool.coverage.run]
+source = ["src/iptc_iris", "examples"]
+command_line = "-m pytest"
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "examples"]
+pythonpath = ["src"]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+
+[tool.pyright]
+typeCheckingMode = "standard"
+reportOptionalMemberAccess = "warning"
+pythonVersion = "3.11"
+include = ["src", "examples"]
+exclude = ["tests",
+    "**/__pycache__",
+    "docs",
+]

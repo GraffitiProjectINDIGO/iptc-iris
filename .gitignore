@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__
+
+# Distribution / packaging
+.Python
+build/
+dist/
+.idea
+*.pickle
+.coverage
+.vscode
+.ruff_cache
+.pytest_cache
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*egg-info/
+*.egg-info/
+
+# Sphinx
+docs/build
+
+htmlcov/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Third-party example images (e.g. IPTC example photos) are not redistributed; place them here locally.
+example_data/*.jpg
+example_data/*.jpeg
+example_data/*.tif
+example_data/*.tiff
+example_data/*.png
+
+# Local output of the CLI examples.
+output/

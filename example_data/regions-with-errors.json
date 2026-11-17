@@ -1,0 +1,160 @@
+[
+  {"that_is_something_different":"test"},
+  {
+    "regionBoundary": {
+      "rbShape": "polygon",
+      "rbUnit": "relative",
+      "not_needed": "asdt",
+      "rbVertices": [
+        {
+          "rbX": "0.0",
+          "rbY": "0.0"
+        },
+        {
+          "rbX": "0.22",
+          "rbY": "0.0"
+        },
+        {
+          "rbX": "0.3",
+          "rbY": "0.37"
+        },
+        {
+          "rbE": "0.12",
+          "rbY": "0.76"
+        },
+        {
+          "rbX": "0.0",
+          "rbY": "0.39"
+        }
+      ]
+    },
+    "rId": "compimgitem1",
+    "name": {"x-default": "Face"},
+    "rRole": [
+      {
+        "name": {
+          "x-default": "composite image item"
+        },
+        "identifiers": [
+          "http://cv.iptc.org/newscodes/imageregionrole/compositeImageItem"
+        ]
+      }
+    ],
+    "rights": {
+      "x-default": "© 2018 Company XYZ23 - Rights reserved"
+    }
+  },
+  {
+    "regionBoundary": {
+      "rbShape": "rectangle",
+      "rbUnit": "relative",
+      "rbVertices": [
+        {
+          "rbX": "0.32",
+          "rbY": "0.1"
+        },
+        {
+          "rbX": "0.59",
+          "rbY": "0.27"
+        },
+        {
+          "rbX": "0.61",
+          "rbY": "0.79"
+        },
+        {
+          "rbX": "0.48",
+          "rbY": "1.0"
+        },
+        {
+          "rbX": "0.3",
+          "rbY": "1.0"
+        },
+        {
+          "rbX": "0.24",
+          "rbY": "0.67"
+        }
+      ]
+    },
+    "rId": "compimgitem1",
+    "name": {"x-default": "Face"},
+    "rRole": [
+      {
+        "name": {
+          "x-default": "composite image item"
+        },
+        "identifiers": [
+          "http://cv.iptc.org/newscodes/imageregionrole/compositeImageItem"
+        ]
+      }
+    ],
+    "rights": {
+      "x-default": "© 2018 Company CSO123 - Rights reserved"
+    }
+  },
+  {
+    "regionBoundary": {
+      "rbShape": "polygon",
+      "rbUnit": "relative",
+      "rbVertices": [
+        {
+          "rbX": "0.65",
+          "rbY": "0.0"
+        },
+        {
+          "rbX": "1.05",
+          "rbY": "0.0"
+        },
+        {
+          "rbX": "1.0",
+          "rbY": "0.6"
+        },
+        {
+          "rbX": "0.81",
+          "rbY": "0.81"
+        },
+        {
+          "rbX": "0.63",
+          "rbY": "0.64"
+        }
+      ]
+    },
+    "rId": "compimgitem1",
+    "rRole": [
+      {
+        "name": {
+          "x-default": "composite image item"
+        },
+        "identifiers": [
+          "http://cv.iptc.org/newscodes/imageregionrole/compositeImageItem"
+        ]
+      }
+    ],
+    "rights1": {
+      "x-default": "© 2018 Company WQR876 - Rights reserved"
+    }
+  },
+  {
+    "regionBoundary": {
+      "rbShape": "circle",
+      "rbUnit": "relative",
+      "rbx": "0.4l",
+      "rby": 0.7,
+      "rbW": 4
+    },
+    "rId": "compimgitem10",
+    "name": {"x-default": "Face"},
+    "rRole": [
+      {
+        "name": {
+          "x-default": "composite image item"
+        },
+        "identifiers": [
+          "cv.iptc.org/newscodes/imageregionrole/compositeImageItem"
+        ]
+      }
+    ],
+    "rights": {
+      "x-default": "© 2018 Company XYZ23 - Rights reserved"
+    }
+  }
+]
